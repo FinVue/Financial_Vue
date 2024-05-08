@@ -57,10 +57,10 @@ git push origin <your_new_branch_name>
 ### Installation
 
 
-1. **Navigate to the project directory, make one terminal for the front-end directory:**
+1. **Navigate to the project directory, make one terminal for the frontend directory:**
 
    ```bash
-   cd front-end
+   cd frontend
    ```
 
 2. **Install the depedencies**
@@ -69,26 +69,11 @@ git push origin <your_new_branch_name>
    npm install
    ```
 
-3. **go back and open back-end directory: and install dependencies**
-
-   ```bash
-   cd ..
-   cd back-end
-   npm install
-   ```
-
-4. **then go back by typing**
-
-   ```bash
-   cd ..
-   cd front-end
-   ```
-
 <hr>
 
 ## Starting the Server
 
- Input **npm run dev** for front-end directory, 
+ Input **npm run dev** for frontend directory, 
 
    ```bash
    npm run dev
