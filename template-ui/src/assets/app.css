@@ -1,3 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@layer base{
+  ::-moz-selection {
+    background: #18181b
+  }
+  ::-webkit-selection {
+    background: #18181b
+  }
+  ::selection {
+    background: #18181b
+  }
+
+  a,
+  p,
+  span,
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-montserrat;
+  }
+}
+
+@layer components {
+  .returnBtn {
+    @apply w-10 h-10 border-2 flex justify-center items-center bg-gray-900 rounded-full;
+  }
+}
