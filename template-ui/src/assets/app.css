@@ -30,6 +30,6 @@
 
 @layer components {
   .returnBtn {
-    @apply w-10 h-10 border-2 flex justify-center items-center bg-gray-900 rounded-full;
+    @apply w-10 h-10 flex justify-center items-center bg-gray-900 rounded-full;
   }
 }

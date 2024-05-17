@@ -585,13 +585,8 @@ a,
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  border-width: 2px;
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-}
-
-.border-2{
-  border-width: 2px;
 }
 
 .p-4{
@@ -602,8 +597,8 @@ a,
   text-align: right;
 }
 
-.font-extrabold{
-  font-weight: 800;
+.text-heading-3{
+  font-size: 24px;
 }
 
 .font-bold{
