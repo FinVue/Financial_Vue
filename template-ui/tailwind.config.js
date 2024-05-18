@@ -17,6 +17,18 @@ module.exports = {
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serfif'],
       },
+      letterSpacing: {
+        'f-small': '-0.02em',
+        'f-widest': '0.03em',
+      },
+      colors: {
+        'secondary': '#68FA61',
+        'secondary-2': '#01B781',
+        'accent': '#687A6A',
+      },
+      lineHeight: {
+        'primary': '-0.3em'
+      }
     },
   },
   plugins: [],
