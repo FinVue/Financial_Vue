@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="../../../public/finVueLogo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to FinVue</title>
+  <link rel="stylesheet" href="../assets/output.css">
+  <script src="https://kit.fontawesome.com/e4a1219774.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <section class="bg-zinc-900 min-h-screen py-4">
+    <article class="p-6">
+      <div class="returnBtn bg-secondary">
+        <i class="fa-solid fa-arrow-left text-black"></i>
+      </div>
+    </article>
+    <article class="p-6">
+      <h3 class="text-heading-3 tracking-f-small font-bold text-white">Add <span class="text-red-500">Expense</span></h3>
+      <form class=" flex flex-col gap-5">
+        <div class="grid gap-1">
+          <label class="primary-label" for="amount">Amount <span class="text-secondary">*</span></label>
+          <div class="relative">
+            <input class="primary-input pl-8 text-white" name="amount" type="number" required>
+            <p class="absolute left-2 top-2 text-white">₱</p>
+          </div>
+        </div>
+        <div class="grid gap-1">
+          <label class="primary-label" for="category">Category <span class="text-secondary">*</span></label>
+          <select class="primary-input text-white" name="category" type="date" placeholder="Enter amount of income" required>
+            <option value="Foods & Drinks">Foods & Drinks 🍔</option>
+            <option value="Shopping">Shopping 🛍️</option>
+            <option value="Transport">Transport 🚗</option>
+            <option value="Home Expense">Home Expense 🏠</option>
+            <option value="Bills & Others">Bills & Others 💳</option>
+          </select>
+        </div>
+        <div class="grid gap-1">
+          <label class="primary-label" for="date">Date <span class="text-secondary">*</span></label>
+          <input class="primary-input text-white" name="date" type="date" required>
+        </div>
+        <button type="submit" class="primary-btn w-full">ADD INCOME 💸</button>
+      </form>
+    </article>
+  </section>
+</body>
