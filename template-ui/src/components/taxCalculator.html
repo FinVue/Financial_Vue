@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="../../../public/finVueLogo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to FinVue</title>
+  <link rel="stylesheet" href="../assets/output.css">
+  <script src="https://kit.fontawesome.com/e4a1219774.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <section class="min-h-screen bg-gradient-to-r from-secondary to-secondary-2">
+    <article class="p-6 flex flex-col gap-8">
+      <div class="returnBtn">
+        <i class="fa-solid fa-arrow-left text-white"></i>
+      </div>
+      <div>
+        <p class="text-small font-semibold">Projected Taxed Monthly Salary:</p>
+        <div class="relative flex">
+          <p class="text-heading-2 font-bold">₱</p>
+          <h3 class="text-heading-2 font-bold pl-5 break-words overflow-auto">2000</h3>
+        </div>
+      </div>
+    </article>
+    <article class="bg-zinc-900 py-16 w-full h-[calc(60vh+900px)] lg:h-[calc(50vh+500px)] px-6 rounded-t-[30px] flex flex-col gap-4">
+      <h2 class="text-heading-3 font-bold text-white tracking-f-small py-5">Calculate<span class="text-secondary"> Tax</span></h2>
+      <form class="flex flex-col gap-6">
+        <div class="grid gap-1">
+          <label class="primary-label" for="amount">MONTHLY SALARY <span class="text-secondary">*</span></label>
+          <div class="relative">
+            <input class="primary-input pl-8 text-white" name="amount" type="number" required>
+            <p class="absolute left-2 top-2 text-white">₱</p>
+          </div>
+        </div>
+        <div class="grid gap-2">
+          <label class="primary-label">SSS Membership Status <span class="text-secondary">*</span></label>
+          <div class="grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-2">
+            <div class="flex-row-reverse flex items-center gap-4">
+              <input type="radio" id="not-member" name="sss-membership" value="Not Member" class="hidden peer" required>
+              <label class="primary-label font-semibold text-white p-4 w-full bg-zinc-900 rounded-md text-center uppercase border border-zinc-700 peer-checked:bg-zinc-800 duration-300" for="not-member">Not Member</label>
+            </div>
+            <div class="flex-row-reverse flex items-center gap-4">
+              <input type="radio" id="household" name="sss-membership" value="Household" class="hidden peer" required>
+              <label class="primary-label font-semibold text-white p-4 w-full bg-zinc-900 rounded-md text-center uppercase border border-zinc-700 peer-checked:bg-zinc-800 duration-300" for="household">Household</label>
+            </div>
+            <div class="flex-row-reverse flex items-center gap-4">
+              <input type="radio" id="employee" name="sss-membership" value="Employee" class="hidden peer" required>
+              <label class="primary-label font-semibold text-white p-4 w-full bg-zinc-900 rounded-md text-center uppercase border border-zinc-700 peer-checked:bg-zinc-800 duration-300" for="employee">Employee</label>
+            </div>
+          </div>
+        </div>
+        <div class="grid gap-2">
+          <label class="primary-label">GSIS Membership Status <span class="text-secondary">*</span></label>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="flex-row-reverse flex items-center">
+              <input type="radio" id="gsis-not-member" name="gsis-membership" class="hidden peer" value="Not Member" required>
+              <label class="primary-label font-semibold text-white p-4 w-full bg-zinc-900 rounded-md text-center uppercase border border-zinc-700 peer-checked:bg-zinc-800 duration-300" for="gsis-not-member">Not Member</label>
+            </div>
+            <div class="flex-row-reverse flex items-center">
+              <input type="radio" id="gsis-member" name="gsis-membership" value="GSIS Member" class="hidden peer" required>
+              <label class="primary-label font-semibold text-white p-4 w-full bg-zinc-900 rounded-md text-center uppercase border border-zinc-700 peer-checked:bg-zinc-800 duration-300" for="gsis-member">I'm a Member</label>
+            </div>
+          </div>
+        </div>
+        <div class="grid gap-2">
+          <label class="primary-label">PhilHealth Membership Status <span class="text-secondary">*</span></label>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="flex-row-reverse flex items-center">
+              <input type="radio" id="philhealth-not-member" name="philhealth-membership" class="hidden peer" value="Not Member" required>
+              <label class="primary-label font-semibold text-white p-4 w-full bg-zinc-900 rounded-md text-center uppercase border border-zinc-700 peer-checked:bg-zinc-800 duration-300" for="philhealth-not-member">Not Member</label>
+            </div>
+            <div class="flex-row-reverse flex items-center">
+              <input type="radio" id="philhealth-member" name="philhealth-membership" value="GSIS Member" class="hidden peer" required>
+              <label class="primary-label font-semibold text-white p-4 w-full bg-zinc-900 rounded-md text-center uppercase border border-zinc-700 peer-checked:bg-zinc-800 duration-300" for="philhealth-member">I'm a Member</label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="primary-btn">Calculate</button>
+      </form>
+      <div class="flex flex-col gap-2">
+        <div class="p-4 bg-zinc-800 rounded-lg">
+          <div class="flex items-center justify-between">
+            <div class="grid gap-2">
+              <p class="text-body font-semibold text-white">SSS</p>
+              <p class="text-small text-white font-regular">₱ <span>4230</span></p>
+            </div>
+            <img class="w-10 h-10 object-cover rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Social_Security_System_%28SSS%29.svg/1200px-Social_Security_System_%28SSS%29.svg.png" alt="SSS Logo">
+          </div>
+        </div>
+        <div class="p-4 bg-zinc-800 rounded-lg">
+          <div class="flex items-center justify-between">
+            <div class="grid gap-2">
+              <p class="text-body font-semibold text-white">GSIS</p>
+              <p class="text-small text-white font-regular">₱ <span>4230</span></p>
+            </div>
+            <img class="w-10 h-10 object-cover rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJyQ4xNGBl_tP0kbuD-M_gUMjQnjGEkYx9wG9BYiTI4g&s" alt="SSS Logo">
+          </div>
+        </div>
+        <div class="p-4 bg-zinc-800 rounded-lg">
+          <div class="flex items-center justify-between">
+            <div class="grid gap-2">
+              <p class="text-body font-semibold text-white">PhilHealth</p>
+              <p class="text-small text-white font-regular">₱ <span>4230</span></p>
+            </div>
+            <img class="w-10 h-10 object-cover rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQimgONmrOviyRl-QecZPDKLx_8boMfkWG0rRGfhuM0BQ&s" alt="SSS Logo">
+          </div>
+        </div>
+        <div class="p-4 bg-zinc-800 rounded-lg">
+          <div class="flex items-center justify-between">
+            <div class="grid gap-2">
+              <p class="text-body font-semibold text-white">Total Tax</p>
+              <p class="text-small text-white font-regular">₱ <span>4230</span></p>
+            </div>
+            <div class="w-10 h-10 bg-lime-200 rounded-full flex justify-center items-center">
+              <h1 class="text-center">💰</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+</body>
+</html>
