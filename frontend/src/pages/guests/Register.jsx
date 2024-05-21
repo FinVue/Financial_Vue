@@ -45,7 +45,7 @@ function Register() {
         password: hashedPassword,
       });
 
-      toast.success('Your account has been successfully registered."');
+      toast.success('Your account has been successfully registered.');
     } catch (error) {
       if (error instanceof FirebaseError) {
         switch (error.code) {
