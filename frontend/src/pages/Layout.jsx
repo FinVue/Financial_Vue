@@ -1,4 +1,6 @@
 import { Outlet, NavLink } from "react-router-dom"
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function Layout() {
   const linkClass = ({isActive}) => isActive ? 'text-white w-12 h-12 flex items-center justify-center rounded-md duration-300 bg-zinc-700' : ' text-white hover:bg-zinc-900 w-12 h-12 flex items-center justify-center p-4 rounded-md duration-300';
@@ -18,6 +20,7 @@ function Layout() {
       </header>
       <main>
         <Outlet/>
+        <ToastContainer/>
       </main>
     </>
   )
