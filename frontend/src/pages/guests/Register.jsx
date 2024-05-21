@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { registerUser } from "../../controllers/user";
 import { toast } from "react-toastify";
 import { FirebaseError } from "firebase/app";
@@ -74,7 +74,7 @@ function Register() {
   const createAccountWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      const user = result.user;
+      const user = await result.user;
       toast.success("Your account has been successfully registered!");
     } catch (error) {
       if (error instanceof FirebaseError) {

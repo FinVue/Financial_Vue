@@ -1,14 +1,20 @@
+import { signOut } from "firebase/auth";
 import { auth } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
 function Settings() {
   const nav = useNavigate();
+  const {user, setUser} = useContext(UserContext);
 
-  const handleSignOut = () => {
+  const handleSignOut = async () => {
     try {
-      auth.signOut().then(() => {
-        nav("/login");
-      });
+      await signOut(auth);
+      setUser(null);
+      toast.success('You have been logged out successfully!')
+      nav('/login')
     } catch (error) {
       console.log(error);
     }

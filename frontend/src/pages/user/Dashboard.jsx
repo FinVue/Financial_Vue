@@ -1,8 +1,13 @@
 import Greet from "../../components/Greet";
 import CardBalance from "../../components/CardBalance";
 import TransactionLog from "../../components/TransactionLog";
+import { useContext, useState } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
 function Dashboard() {
+  const {user} = useContext(UserContext);
+  const [userData, setUserData] = useState(null);
+
   const name = "John Doe";
   const cardDetails = {
     balanceTtl: 500,
