@@ -1,7 +1,7 @@
 import { Outlet, NavLink } from "react-router-dom"
 
 function Layout() {
-  const linkClass = ({isActive}) => isActive ? 'text-white hover:bg-zinc-800 w-12 h-12 flex items-center justify-center rounded-md duration-300 bg-zinc-700' : ' text-white hover:bg-zinc-800 w-12 h-12 flex items-center justify-center p-4 rounded-md duration-300';
+  const linkClass = ({isActive}) => isActive ? 'text-white w-12 h-12 flex items-center justify-center rounded-md duration-300 bg-zinc-700' : ' text-white hover:bg-zinc-900 w-12 h-12 flex items-center justify-center p-4 rounded-md duration-300';
 
 
   return (
