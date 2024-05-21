@@ -5,7 +5,6 @@ import { FirebaseError } from "firebase/app";
 import { auth, db, googleProvider } from "../../../firebase";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
-import { Link } from "react-router-dom";
 import bcryptjs from "bcryptjs";
 
 function Register() {
@@ -219,7 +218,6 @@ function Register() {
             CREATE AN ACCOUNT
           </button>
         </form>
-        
         <div className="grid grid-cols-3 justify-center items-center">
           <hr className="bg-secondary h-[2px] border-0"></hr>
           <p className="text-center text-white text-pre-title">OR</p>
@@ -229,7 +227,7 @@ function Register() {
           <i className="fa-brands fa-google text-white"></i> &nbsp;&nbsp;&nbsp;
           Continue with Google
         </div>
-        <p className="pt-8 pb-2 text-pre-title text-white text-center">
+        <p className="pt-8 pb-6 text-pre-title text-white text-center">
           By selecting Create Account, you agree to our{" "}
           <a href="https://firebasestorage.googleapis.com/v0/b/finvue-e2d75.appspot.com/o/terms%20and%20aggrement%2FTerms%20and%20Agreement.pdf?alt=media&token=9ae0ad82-ee3d-4a53-8738-264bcc4a6bea" className="font-bold underline cursor-pointer text-secondary">
           Terms
@@ -240,12 +238,6 @@ function Register() {
           </a>
           .
         </p>
-        <div className="mt-2 text-center text-sm">
-          <span className="text-white">Already have an account?</span>{" "}
-            <Link to="/login" className="font-bold underline cursor-pointer text-secondary text">
-              Sign in
-            </Link>
-        </div>
       </article>
     </section>
     
