@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from 'react-router-dom'
 import { toast } from "react-toastify";
 import { loginUser } from "../../controllers/user";
 import { auth, googleProvider } from "../../../firebase";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
+import { UserContext } from "../../contexts/UserContext";
 
 function Login() {
+  const nav = useNavigate();
+
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [showPwd, setShowPwd] = useState(false);
+  const {user, setUser} = useContext(UserContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +23,9 @@ function Login() {
         formData.email,
         formData.password
       );
-      toast.success('You have successfully logged in!')
+      setUser(userCredential.user);
+      toast.success('You have successfully logged in!');
+      nav('/dashboard');
     } catch (error) {
       if (error instanceof FirebaseError) {
         switch (error.code) {
