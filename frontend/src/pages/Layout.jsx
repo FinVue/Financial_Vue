@@ -10,7 +10,7 @@ function Layout() {
     <>
       <header className="p-6 w-full bg-gradient-to-tr from-zinc-900 to-zinc-800 flex justify-between items-center">
         <div className="w-10 h-10">
-          <img src="/finVueLogo.png" alt="" />
+          <img src="/finVueLogo.png" alt="FinVue Logo" />
         </div>
         <div className="flex gap-5 md:gap-16">
           <NavLink to={'index'} title="Home" className={linkClass}><i className="fa-solid fa-house"></i></NavLink>
