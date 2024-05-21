@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { loginUser } from "../../controllers/user";
-import { auth } from "../../../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth, googleProvider } from "../../../firebase";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
 
 function Login() {
@@ -18,11 +18,35 @@ function Login() {
         formData.email,
         formData.password
       );
+      toast.success('You have successfully logged in!')
     } catch (error) {
       if (error instanceof FirebaseError) {
         switch (error.code) {
           case "auth/invalid-credential":
             toast.error("Invalid email or password. Please try again.");
+            break;
+          default:
+            toast.error(error.code);
+            break;
+        }
+      } else {
+        toast.error(error.message);
+      }
+    }
+  };
+
+  const loginWithGoogleAccount = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      toast.success("You have successfully logged in!");
+    } catch (error) {
+      if (error instanceof FirebaseError) {
+        switch (error.code) {
+          case "auth/popup-closed-by-user":
+            toast.error(
+              "The sign-in process was interrupted because the popup was closed. Please try again."
+            );
             break;
           default:
             toast.error(error.code);
@@ -106,7 +130,7 @@ function Login() {
           <p className="text-center text-white text-pre-title">OR</p>
           <hr className="bg-secondary h-[2px] border-0"></hr>
         </div>
-        <div className="secondary-btn">
+        <div onClick={loginWithGoogleAccount} className="secondary-btn">
           <i className="fa-brands fa-google text-white"></i> &nbsp;&nbsp;&nbsp;
           Continue with Google
         </div>
