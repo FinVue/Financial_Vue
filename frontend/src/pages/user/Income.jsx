@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Income() {
   const [formData, setFormData] = useState({
-    amount: '',
+    amount: "",
     category: "Personal",
     date: "",
   });
@@ -35,7 +35,9 @@ function Income() {
                 type="number"
                 placeholder="0"
                 value={formData.amount}
-                onChange={(e) => setFormData({...formData, amount: e.target.value})}
+                onChange={(e) =>
+                  setFormData({ ...formData, amount: e.target.value })
+                }
                 required
               />
               <p className="absolute left-2 top-2 text-white">₱</p>
@@ -49,7 +51,9 @@ function Income() {
               className="primary-input text-white"
               name="category"
               value={formData.category}
-              onChange={(e) => setFormData({...formData, category: e.target.value})}
+              onChange={(e) =>
+                setFormData({ ...formData, category: e.target.value })
+              }
               required
             >
               <option value="Personal">Personal 🧍</option>
@@ -68,7 +72,9 @@ function Income() {
               name="date"
               type="date"
               value={formData.date}
-              onChange={(e) => setFormData({...formData, date: e.target.value})}
+              onChange={(e) =>
+                setFormData({ ...formData, date: e.target.value })
+              }
               required
             />
           </div>

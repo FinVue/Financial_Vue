@@ -1,12 +1,98 @@
 import { useState } from "react";
+import { registerUser } from "../../controllers/user";
+import { toast } from "react-toastify";
+import { FirebaseError } from "firebase/app";
+import { auth, db, googleProvider } from "../../../firebase";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { addDoc, collection } from "firebase/firestore";
+import bcryptjs from "bcryptjs";
 
 function Register() {
-  const [formData, setFormData] = useState({firstName: '', lastName: '', email: '', password: '', confirmedPassword: ''});
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmedPassword: "",
+  });
+  const [showPwd, setShowPwd] = useState(false);
+  const [showConfirmedPwd, setShowConfirmedPwd] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-  }
 
+    try {
+      await registerUser(
+        formData.email,
+        formData.password,
+        formData.confirmedPassword
+      );
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
+
+      const salt = await bcryptjs.genSalt(10);
+      const saltedPassword = (await formData.password) + salt;
+      const hashedPassword = await bcryptjs.hash(saltedPassword, 10);
+
+      await addDoc(collection(db, "users"), {
+        uid: userCredential.user.uid,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        password: hashedPassword,
+      });
+
+      toast.success('Your account has been successfully registered.');
+    } catch (error) {
+      if (error instanceof FirebaseError) {
+        switch (error.code) {
+          case "auth/weak-password":
+            toast.error(
+              "The password is too weak: Please choose a stronger password."
+            );
+            break;
+          case "auth/email-already-in-use":
+            toast.error(
+              "The email address is already in use by another account."
+            );
+            break;
+          case "auth/invalid-email":
+            toast.error("Please use a valid Gmail account for registration.");
+            break;
+          default:
+            toast.error(error.message);
+        }
+      } else {
+        toast.error(error.message);
+      }
+    }
+  };
+
+  const createAccountWithGoogle = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      toast.success("Your account has been successfully registered!");
+    } catch (error) {
+      if (error instanceof FirebaseError) {
+        switch (error.code) {
+          case "auth/popup-closed-by-user":
+            toast.error(
+              "The sign-in process was interrupted because the popup was closed. Please try again."
+            );
+            break;
+          default:
+            toast.error(error.code);
+            break;
+        }
+      } else {
+        toast.error(error.message);
+      }
+    }
+  };
 
   return (
     <section className="min-h-screen bg-gradient-to-r from-secondary to-secondary-2">
@@ -40,7 +126,9 @@ function Register() {
               type="text"
               placeholder="Ex. John"
               value={formData.firstName}
-              onChange={(e) => setFormData({...formData, firstName: e.target.value})}
+              onChange={(e) =>
+                setFormData({ ...formData, firstName: e.target.value })
+              }
               required
             />
           </div>
@@ -54,7 +142,9 @@ function Register() {
               type="text"
               placeholder="Ex. Doe"
               value={formData.lastName}
-              onChange={(e) => setFormData({...formData, lastName: e.target.value})}
+              onChange={(e) =>
+                setFormData({ ...formData, lastName: e.target.value })
+              }
               required
             />
           </div>
@@ -67,7 +157,9 @@ function Register() {
               type="email"
               placeholder="hello@gmail.com"
               value={formData.email}
-              onChange={(e) => setFormData({...formData, email: e.target.value})}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
               required
             />
           </div>
@@ -78,13 +170,21 @@ function Register() {
             <div className="flex items-center justify-center relative">
               <input
                 className="primary-input text-white"
-                type="password"
+                type={showPwd ? "text" : "password"}
                 placeholder="Enter your password"
                 value={formData.password}
-                onChange={(e) => setFormData({...formData, password: e.target.value})}
+                minLength="8"
+                onChange={(e) =>
+                  setFormData({ ...formData, password: e.target.value })
+                }
                 required
               />
-              <i className="cursor-pointer text-white fa-solid fa-eye absolute right-1 pr-2 bg-zinc-900"></i>
+              <i
+                onClick={() => setShowPwd(!showPwd)}
+                className={`cursor-pointer text-white fa-solid ${
+                  showPwd ? "fa-eye" : "fa-eye-slash"
+                } absolute right-1 pr-2 bg-zinc-900`}
+              ></i>
             </div>
           </div>
           <div className="grid gap-1">
@@ -95,23 +195,35 @@ function Register() {
               <input
                 className="primary-input text-white"
                 name="confirmPassword"
-                type="password"
-                placeholder="Enter your password"
+                type={showConfirmedPwd ? "text" : "password"}
+                placeholder="Confirm your password"
                 value={formData.confirmedPassword}
-                onChange={(e) => setFormData({...formData, confirmedPassword: e.target.value})}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    confirmedPassword: e.target.value,
+                  })
+                }
                 required
               />
-              <i className="cursor-pointer text-white fa-solid fa-eye absolute right-1 pr-2 bg-zinc-900"></i>
+              <i
+                onClick={() => setShowConfirmedPwd(!showConfirmedPwd)}
+                className={`cursor-pointer text-white fa-solid ${
+                  showConfirmedPwd ? "fa-eye" : "fa-eye-slash"
+                } absolute right-1 pr-2 bg-zinc-900`}
+              ></i>
             </div>
           </div>
-          <button type="submit" className="primary-btn">CREATE AN ACCOUNT</button>
+          <button type="submit" className="primary-btn">
+            CREATE AN ACCOUNT
+          </button>
         </form>
         <div className="grid grid-cols-3 justify-center items-center">
           <hr className="bg-secondary h-[2px] border-0"></hr>
           <p className="text-center text-white text-pre-title">OR</p>
           <hr className="bg-secondary h-[2px] border-0"></hr>
         </div>
-        <div className="secondary-btn">
+        <div onClick={createAccountWithGoogle} className="secondary-btn">
           <i className="fa-brands fa-google text-white"></i> &nbsp;&nbsp;&nbsp;
           Continue with Google
         </div>

@@ -1,14 +1,62 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
+import { loginUser } from "../../controllers/user";
+import { auth, googleProvider } from "../../../firebase";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { FirebaseError } from "firebase/app";
 
 function Login() {
-  const [formData, setFormData] = useState({email: '', password: ''});
-  
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [showPwd, setShowPwd] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      await loginUser(formData.email, formData.password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
+      toast.success('You have successfully logged in!')
+    } catch (error) {
+      if (error instanceof FirebaseError) {
+        switch (error.code) {
+          case "auth/invalid-credential":
+            toast.error("Invalid email or password. Please try again.");
+            break;
+          default:
+            toast.error(error.code);
+            break;
+        }
+      } else {
+        toast.error(error.message);
+      }
+    }
+  };
 
-    console.log(formData)
-  }
-
+  const loginWithGoogleAccount = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      toast.success("You have successfully logged in!");
+    } catch (error) {
+      if (error instanceof FirebaseError) {
+        switch (error.code) {
+          case "auth/popup-closed-by-user":
+            toast.error(
+              "The sign-in process was interrupted because the popup was closed. Please try again."
+            );
+            break;
+          default:
+            toast.error(error.code);
+            break;
+        }
+      } else {
+        toast.error(error.message);
+      }
+    }
+  };
 
   return (
     <section className="min-h-screen bg-gradient-to-r from-secondary to-secondary-2">
@@ -21,7 +69,8 @@ function Login() {
           <br />
           financial hub
           <br />
-          instantly for<br />
+          instantly for
+          <br />
           seamless control
           <br />
           over your finances.
@@ -42,7 +91,9 @@ function Login() {
               type="email"
               placeholder="finvue@gmail.com"
               value={formData.email}
-              onChange={(e) => setFormData({...formData, email: e.target.value})}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
               required
             />
           </div>
@@ -53,14 +104,21 @@ function Login() {
             <div className="flex items-center justify-center relative">
               <input
                 className="primary-input text-white"
-                type="password"
+                type={showPwd ? "text" : "password"}
                 placeholder="Enter your password"
                 value={formData.password}
-                onChange={(e) => setFormData({...formData, password: e.target.value})}
-                minLength={8}
+                onChange={(e) =>
+                  setFormData({ ...formData, password: e.target.value })
+                }
+                min={8}
                 required
               />
-              <i className="cursor-pointer text-white fa-solid fa-eye absolute right-1 pr-2 bg-zinc-900"></i>
+              <i
+                onClick={() => setShowPwd(!showPwd)}
+                className={`cursor-pointer text-white fa-solid ${
+                  showPwd ? "fa-eye" : "fa-eye-slash"
+                } absolute right-1 pr-2 bg-zinc-900`}
+              ></i>
             </div>
           </div>
           <button type="submit" className="primary-btn">
@@ -72,7 +130,7 @@ function Login() {
           <p className="text-center text-white text-pre-title">OR</p>
           <hr className="bg-secondary h-[2px] border-0"></hr>
         </div>
-        <div className="secondary-btn">
+        <div onClick={loginWithGoogleAccount} className="secondary-btn">
           <i className="fa-brands fa-google text-white"></i> &nbsp;&nbsp;&nbsp;
           Continue with Google
         </div>

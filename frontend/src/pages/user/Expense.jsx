@@ -34,7 +34,9 @@ function Expense() {
                 type="number"
                 placeholder="0"
                 value={formData.amount}
-                onChange={(e) => setFormData({...formData, amount: e.target.value})}
+                onChange={(e) =>
+                  setFormData({ ...formData, amount: e.target.value })
+                }
                 required
               />
               <p className="absolute left-2 top-2 text-white">₱</p>
@@ -48,7 +50,9 @@ function Expense() {
               className="primary-input text-white"
               name="category"
               value={formData.category}
-                onChange={(e) => setFormData({...formData, category: e.target.value})}
+              onChange={(e) =>
+                setFormData({ ...formData, category: e.target.value })
+              }
               required
             >
               <option value="Foods & Drinks">Foods & Drinks 🍔</option>
@@ -67,7 +71,9 @@ function Expense() {
               name="date"
               type="date"
               value={formData.date}
-              onChange={(e) => setFormData({...formData, date: e.target.value})}
+              onChange={(e) =>
+                setFormData({ ...formData, date: e.target.value })
+              }
               required
             />
           </div>

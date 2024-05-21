@@ -45,7 +45,9 @@ function EmergencyFund() {
                 type="number"
                 min="0"
                 value={formData.monthlySalary}
-                onChange={(e) => setFormData({...formData, monthlySalary: e.target.value})}
+                onChange={(e) =>
+                  setFormData({ ...formData, monthlySalary: e.target.value })
+                }
                 required
               />
               <p className="absolute left-2 top-2 text-white">₱</p>
@@ -61,7 +63,9 @@ function EmergencyFund() {
               placeholder="Number months you wish to cover"
               min="1"
               value={formData.monthsCount}
-              onChange={(e) => setFormData({...formData, monthsCount: e.target.value})}
+              onChange={(e) =>
+                setFormData({ ...formData, monthsCount: e.target.value })
+              }
               required
             />
           </div>
