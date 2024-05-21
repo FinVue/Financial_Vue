@@ -75,22 +75,24 @@ function Register() {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
-      toast.success("Your account has been successfully registered!")
+      toast.success("Your account has been successfully registered!");
     } catch (error) {
-      if(error instanceof FirebaseError){
-        switch(error.code){
-          case 'auth/popup-closed-by-user':
-            toast.error('The sign-in process was interrupted because the popup was closed. Please try again.');
+      if (error instanceof FirebaseError) {
+        switch (error.code) {
+          case "auth/popup-closed-by-user":
+            toast.error(
+              "The sign-in process was interrupted because the popup was closed. Please try again."
+            );
             break;
           default:
-            toast.error(error.code)
+            toast.error(error.code);
             break;
         }
-      } else{
-        toast.error(error.message)
+      } else {
+        toast.error(error.message);
       }
     }
-  }
+  };
 
   return (
     <section className="min-h-screen bg-gradient-to-r from-secondary to-secondary-2">

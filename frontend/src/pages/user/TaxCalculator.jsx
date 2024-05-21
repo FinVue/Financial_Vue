@@ -45,7 +45,9 @@ function TaxCalculator() {
                 min={0}
                 placeholder="0"
                 value={formData.monthlySalary}
-                onChange={(e) => setFormData({...formData, monthlySalary: e.target.value})}
+                onChange={(e) =>
+                  setFormData({ ...formData, monthlySalary: e.target.value })
+                }
                 required
               />
               <p className="absolute left-2 top-2 text-white">₱</p>
@@ -63,7 +65,9 @@ function TaxCalculator() {
                   name="sss-membership"
                   value="Not Member"
                   className="hidden peer"
-                  onChange={(e) => setFormData({...formData, isSssMember: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, isSssMember: e.target.value })
+                  }
                   required
                 />
                 <label
@@ -79,7 +83,9 @@ function TaxCalculator() {
                   id="household"
                   name="sss-membership"
                   value="Household"
-                  onChange={(e) => setFormData({...formData, isSssMember: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, isSssMember: e.target.value })
+                  }
                   className="hidden peer"
                   required
                 />
@@ -96,7 +102,9 @@ function TaxCalculator() {
                   id="employee"
                   name="sss-membership"
                   value="Employee"
-                  onChange={(e) => setFormData({...formData, isSssMember: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, isSssMember: e.target.value })
+                  }
                   className="hidden peer"
                   required
                 />
@@ -121,7 +129,9 @@ function TaxCalculator() {
                   name="gsis-membership"
                   className="hidden peer"
                   value="Not Member"
-                  onChange={(e) => setFormData({...formData, isGsisMember: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, isGsisMember: e.target.value })
+                  }
                   required
                 />
                 <label
@@ -137,7 +147,9 @@ function TaxCalculator() {
                   id="gsis-member"
                   name="gsis-membership"
                   value="GSIS Member"
-                  onChange={(e) => setFormData({...formData, isGsisMember: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({ ...formData, isGsisMember: e.target.value })
+                  }
                   className="hidden peer"
                   required
                 />
@@ -163,7 +175,12 @@ function TaxCalculator() {
                   name="philhealth-membership"
                   className="hidden peer"
                   value="Not Member"
-                  onChange={(e) => setFormData({...formData, isPhilHealthMember: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      isPhilHealthMember: e.target.value,
+                    })
+                  }
                   required
                 />
                 <label
@@ -180,7 +197,12 @@ function TaxCalculator() {
                   name="philhealth-membership"
                   value="Philhealth Member"
                   className="hidden peer"
-                  onChange={(e) => setFormData({...formData, isPhilHealthMember: e.target.value})}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      isPhilHealthMember: e.target.value,
+                    })
+                  }
                   required
                 />
                 <label
