@@ -12,11 +12,9 @@ function Greet() {
       const user = auth.currentUser;
       if (user) {
         try {
-          // If the user is signed in with Google
           if (user.providerData && user.providerData[0].providerId === 'google.com') {
             setPhotoURL(user.photoURL);
           } else {
-            // If the user is stored in Firestore
             const q = query(collection(db, 'users'), where('uid', '==', user.uid));
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach(doc => {
@@ -24,7 +22,6 @@ function Greet() {
               setName(`${userData.firstName} ${userData.lastName}`);
             });
   
-            // Set the profile picture URL from local storage
             const storedPhotoURL = localStorage.getItem('photoURL');
             if (storedPhotoURL) {
               setPhotoURL(storedPhotoURL);
@@ -37,12 +34,12 @@ function Greet() {
         }
       } else {
         console.log('No user is currently logged in');
-        setPhotoURL(''); // Clear photoURL when user logs out
+        setPhotoURL(''); 
       }
     };
 
     fetchUserData();
-  }, []); // Empty dependencies array, so it only runs once on component mount
+  }, []); 
 
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
@@ -73,7 +70,7 @@ function Greet() {
           <span className="text-secondary text-heading-3 font-bold">{name}</span>
         </h1>
       </div>
-      <div> {/* Wrapper div for the profile image */}
+      <div>
         <label htmlFor="profile-image">
           <img
             className="w-10 h-10 object-cover rounded-full cursor-pointer"
