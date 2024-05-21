@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="../../../public/finVueLogo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to FinVue</title>
+  <link rel="stylesheet" href="../assets/output.css">
+  <script src="https://kit.fontawesome.com/e4a1219774.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <section class="min-h-screen bg-gradient-to-r from-secondary to-secondary-2">
+    <article class="p-6 flex flex-col gap-8">
+      <div class="returnBtn">
+        <i class="fa-solid fa-arrow-left text-white"></i>
+      </div>
+      <div>
+        <p class="text-small font-semibold">Recommended emergency fund:</p>
+        <div class="relative flex">
+          <p class="text-heading-2 font-bold">₱</p>
+          <h3 class="text-heading-2 font-bold pl-5 break-words overflow-auto">2000</h3>
+        </div>
+      </div>
+    </article>
+    <article class="bg-zinc-900 py-16 w-full h-[calc(50vh+300px)] lg:h-[calc(50vh+500px)] px-6 rounded-t-[30px] flex flex-col gap-4">
+      <h2 class="text-heading-3 font-bold text-white tracking-f-small py-5">Emergency<span class="text-secondary"> Fund</span></h2>
+      <form class="flex flex-col gap-6">
+        <div class="grid gap-1">
+          <label class="primary-label" for="amount">MONTHLY SALARY <span class="text-secondary">*</span></label>
+          <div class="relative">
+            <input class="primary-input pl-8 text-white" name="amount" type="number" required>
+            <p class="absolute left-2 top-2 text-white">₱</p>
+          </div>
+        </div>
+        <div class="grid gap-1">
+          <label class="primary-label" for="email">Number Of Months <span class="text-secondary">*</span></label>
+          <input class="primary-input text-white" type="number" placeholder="Enter months you wish to cover" required>
+        </div>
+        <button type="submit" class="primary-btn">Calculate</button>
+      </form>
+    </article>
+  </section>
+</body>
+</html>
