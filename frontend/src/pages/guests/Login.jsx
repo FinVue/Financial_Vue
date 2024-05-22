@@ -45,8 +45,8 @@ function Login() {
   const loginWithGoogleAccount = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      const user = result.user;
       toast.success("You have successfully logged in!");
+      setUser(result.user);
       nav('/dashboard');
     } catch (error) {
       if (error instanceof FirebaseError) {
