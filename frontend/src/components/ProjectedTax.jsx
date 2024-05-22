@@ -1,9 +1,13 @@
+import { Link } from "react-router-dom";
+
 function ProjectedTax({ taxedSalary }) {
   return (
     <article className="p-6 flex flex-col gap-8">
-      <div className="returnBtn">
-        <i className="fa-solid fa-arrow-left text-white"></i>
-      </div>
+      <Link to='/wallet'>
+        <div className="returnBtn">
+          <i className="fa-solid fa-arrow-left text-white"></i>
+        </div>    
+      </Link>
       <div>
         <p className="text-small font-semibold">
           Projected Taxed Monthly Salary:
