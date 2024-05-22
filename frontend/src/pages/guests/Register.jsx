@@ -6,8 +6,13 @@ import { auth, db, googleProvider } from "../../../firebase";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import bcryptjs from "bcryptjs";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../contexts/UserContext";
 
 function Register() {
+  const nav = useNavigate();
+  const {user, setUser} = useContext(UserContext);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -45,6 +50,7 @@ function Register() {
         password: hashedPassword,
       });
 
+      nav('/dashboard')
       toast.success('Your account has been successfully registered.');
     } catch (error) {
       if (error instanceof FirebaseError) {
@@ -74,8 +80,9 @@ function Register() {
   const createAccountWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      const user = await result.user;
       toast.success("Your account has been successfully registered!");
+      setUser(result.user);
+      nav('/dashboard');
     } catch (error) {
       if (error instanceof FirebaseError) {
         switch (error.code) {
