@@ -1,4 +1,4 @@
-function TransactionCategory({ emoji, category, date, value = 0 }) {
+function TransactionCategory({category, date, value = 0 }) {
   const isIncome =
     category == "Personal" ||
     category == "Business" ||
@@ -13,37 +13,48 @@ function TransactionCategory({ emoji, category, date, value = 0 }) {
     category == "Bills & Others";
 
   let categoryColor;
+  let setEmoji;
 
   switch (category) {
     case "Personal":
       categoryColor = "bg-personal";
+      setEmoji = '🧍';
       break;
     case "Business":
       categoryColor = "bg-business";
+      setEmoji = '💼';
       break;
     case "Gifts":
       categoryColor = "bg-gifts";
+      setEmoji = '🎁';
       break;
     case "Loan":
       categoryColor = "bg-loan";
+      setEmoji = '💸';
       break;
     case "Others":
       categoryColor = "bg-other-exp";
+      setEmoji = '🗂️';
       break;
     case "Food":
       categoryColor = "bg-food";
+      setEmoji = '🍔';
       break;
     case "Shopping":
       categoryColor = "bg-shopping";
+      setEmoji = '🛍️';
       break;
     case "Transport":
       categoryColor = "bg-transport";
+      setEmoji = '🚘';
       break;
     case "Home Expense":
       categoryColor = "bg-home";
+      setEmoji = '🏠';
       break;
     case "Bills & Others":
       categoryColor = "bg-other-inc";
+      setEmoji = '💳';
       break;
     default:
       categoryColor = "bg-zinc-700";
@@ -56,7 +67,7 @@ function TransactionCategory({ emoji, category, date, value = 0 }) {
         className={`${categoryColor} w-12 h-12 rounded-lg p-2 grid self-center`}
       >
         <p className="text-center grid self-center justify-self-center">
-          {emoji}
+          {setEmoji}
         </p>
       </div>
       <div className="grid col-span-2 lg:col-span-8 items-center">
