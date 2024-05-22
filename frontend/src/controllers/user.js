@@ -13,8 +13,16 @@ const registerUser = (email, password, confirmedPassword) => {
     throw Error("All fields are required.");
   }
 
+  if (!email.endsWith('@gmail.com')) {
+    throw Error("Email must be from @gmail.com domain.");
+  }
+
   if (password < 8) {
     throw Error("Password is too short. It must be more than 8 characters.");
+  }
+
+  if (password < 8 || !/[\W_\-<>]/.test(password)) { 
+    throw Error("Your Password must have atleast one Unique Character");
   }
 
   if (password !== confirmedPassword) {

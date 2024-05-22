@@ -229,17 +229,18 @@ function Register() {
         </div>
         <p className="pt-8 pb-6 text-pre-title text-white text-center">
           By selecting Create Account, you agree to our{" "}
-          <span className="font-bold underline cursor-pointer text-secondary">
-            Terms
-          </span>{" "}
+          <a href="https://firebasestorage.googleapis.com/v0/b/finvue-e2d75.appspot.com/o/terms%20and%20aggrement%2FTerms%20and%20Agreement.pdf?alt=media&token=9ae0ad82-ee3d-4a53-8738-264bcc4a6bea" className="font-bold underline cursor-pointer text-secondary">
+          Terms
+          </a>{" "}
           and have read and acknowledge our{" "}
-          <span className="font-bold underline cursor-pointer text-secondary">
+          <a href="https://firebasestorage.googleapis.com/v0/b/finvue-e2d75.appspot.com/o/terms%20and%20aggrement%2FRA-10173-Data-Privacy-Act-of-2012.pdf?alt=media&token=badaab91-6e83-4f30-85ab-716ae2c1df08" className="font-bold underline cursor-pointer text-secondary">
             Global Privacy Statement
-          </span>
+          </a>
           .
         </p>
       </article>
     </section>
+    
   );
 }
 
