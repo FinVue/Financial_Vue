@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Income() {
   const [formData, setFormData] = useState({
@@ -15,9 +16,11 @@ function Income() {
   return (
     <section className="bg-zinc-900 min-h-screen py-4">
       <article className="p-6">
-        <div className="returnBtn bg-secondary">
-          <i className="fa-solid fa-arrow-left text-black"></i>
-        </div>
+        <Link to={'/dashboard'}>
+          <div className="returnBtn bg-secondary">
+            <i className="fa-solid fa-arrow-left text-black"></i>
+          </div>
+        </Link>
       </article>
       <article className="p-6">
         <h3 className="text-heading-3 tracking-f-small font-bold text-white">

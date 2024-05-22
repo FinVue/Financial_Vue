@@ -1,6 +1,6 @@
 import CardTax from "../../components/CardTax";
 import ProjectedTax from "../../components/ProjectedTax";
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 function TaxCalculator() {
   const sssLogo =
@@ -15,23 +15,31 @@ function TaxCalculator() {
   const [formData, setFormData] = useState({
     monthlySalary: "",
     isSssMember: "",
+    sssDeductionAmt: "",
     isGsisMember: "",
+    gsisDeductionAmt: "",
     isPhilHealthMember: "",
+    philHealthDeductionAmt: "",
+    finalSalary: "",
   });
+
+  const [finalSalary, setFinalSalary] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if(formData.isSssMember === "Not Member" || formData.isGsisMember === "Not Member" || formData.isPhilHealthMember === "Not Member"){
-      return;
+    const annual = formData.monthlySalary * 12;
+    let final, tax, excess, taxed_income, addon;
+
+    if (annual<=250000){
+      final = annual / 12;
+      setFinalSalary(final);
     }
-    
-    console.log(formData);
   };
 
   return (
     <section className="min-h-screen bg-gradient-to-r from-secondary to-secondary-2">
-      <ProjectedTax taxedSalary={5000} />
+      <ProjectedTax taxedSalary={finalSalary} />
       <article className="bg-zinc-900 py-16 w-full h-[calc(60vh+900px)] lg:h-[calc(50vh+700px)] px-6 rounded-t-[30px] flex flex-col gap-4">
         <h2 className="text-heading-3 font-bold text-white tracking-f-small py-5">
           Calculate<span className="text-secondary"> Tax</span>
@@ -46,11 +54,10 @@ function TaxCalculator() {
                 className="primary-input pl-8 text-white"
                 name="amount"
                 type="number"
-                min={0}
                 placeholder="0"
                 value={formData.monthlySalary}
                 onChange={(e) =>
-                  setFormData({ ...formData, monthlySalary: e.target.value })
+                  setFormData({ ...formData, monthlySalary: Number(e.target.value) })
                 }
                 required
               />
@@ -223,10 +230,19 @@ function TaxCalculator() {
           </button>
         </form>
         <div className="flex flex-col gap-2">
-          <CardTax recipient="SSS" img={sssLogo} />
+          <CardTax
+            recipient="SSS"
+            img={sssLogo}
+          />
           <CardTax recipient="GSIS" img={gsisLogo} />
-          <CardTax recipient="PhilHealth" img={philhealthLogo} />
-          <CardTax recipient="Total Accumulated Tax" img={taxLogo} />
+          <CardTax
+            recipient="PhilHealth"
+            img={philhealthLogo}
+          />
+          <CardTax
+            recipient="Total Accumulated Tax"
+            img={taxLogo}
+          />
         </div>
       </article>
     </section>

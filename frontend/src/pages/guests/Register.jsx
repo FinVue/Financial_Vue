@@ -6,8 +6,9 @@ import { auth, db, googleProvider } from "../../../firebase";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import bcryptjs from "bcryptjs";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
+
 
 function Register() {
   const nav = useNavigate();
