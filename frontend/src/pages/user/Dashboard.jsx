@@ -1,51 +1,57 @@
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../../contexts/UserContext";
+import { db } from "../../../firebase";
+import { doc, getDoc } from "firebase/firestore";
 import Greet from "../../components/Greet";
 import CardBalance from "../../components/CardBalance";
 import TransactionLog from "../../components/TransactionLog";
 import TransactionCategory from "../../components/TransactionCategory";
-import { useContext, useState } from "react";
-import { UserContext } from "../../contexts/UserContext";
 
 function Dashboard() {
-  const {user} = useContext(UserContext);
-  const [userData, setUserData] = useState(null);
-  const [transactionsData, setTransactionsData] = useState([
-    {
-      id: 1,
-      category: "Business",
-      date: "12/06/1997",
-      value: 300,
-    },
-    {
-      id: 2,
-      category: "Food",
-      date: "10/02/1997",
-      value: 348,
-    },
-    {
-      id: 3,
-      category: "Home Expense",
-      date: "10/02/1997",
-      value: 627,
-    },
-    {
-      id: 5,
-      category: "Home Expense",
-      date: "06/02/2023",
-      value: 627,
-    },
-    {
-      id: 4,
-      category: "Loan",
-      date: "10/02/1997",
-      value: 256,
-    }
-  ]);
+  const { user } = useContext(UserContext);
+  const [totalIncome, setTotalIncome] = useState("0");
+  const [totalExpense, setTotalExpense] = useState("0");
+  const [transactions, setTransactions] = useState({ income: [], expense: [] });
 
-  const name = "John Doe";
+  useEffect(() => {
+    const fetchIncomeAndExpense = async () => {
+      try {
+        const userDocRef = doc(db, "users", user.uid);
+        const userDocSnap = await getDoc(userDocRef);
+
+        if (userDocSnap.exists()) {
+          const userData = userDocSnap.data();
+          const { income = [], expense = [] } = userData;
+
+          const totalIncome = income.reduce(
+            (acc, curr) => acc + parseFloat(curr.amount),
+            0
+          );
+
+          const totalExpense = expense.reduce(
+            (acc, curr) => acc + parseFloat(curr.amount),
+            0
+          );
+
+          setTotalIncome(totalIncome.toFixed(2));
+          setTotalExpense(totalExpense.toFixed(2));
+          setTransactions({ income, expense });
+        } else {
+          console.error("User document does not exist.");
+        }
+      } catch (error) {
+        console.error("Error fetching income and expense data: ", error);
+      }
+    };
+
+    fetchIncomeAndExpense();
+  }, [user]);
+
+  const name = "John Doe"; // Replace with the user's actual name if needed
   const cardDetails = {
-    balanceTtl: 500,
-    incomeVal: 4000,
-    expenseVal: 300,
+    balanceTtl: (parseFloat(totalIncome) - parseFloat(totalExpense)).toFixed(2),
+    incomeVal: totalIncome,
+    expenseVal: totalExpense,
   };
 
   return (
@@ -57,15 +63,26 @@ function Dashboard() {
         ExpenseVal={cardDetails.expenseVal}
       />
       <TransactionLog>
-        <div className="flex flex-col gap-2">
-          {
-          transactionsData
-          .sort((a, b) => new Date(b.date) - new Date(a.date))
-          .map((transaction) => {
-            return (<TransactionCategory key={transaction.id} category={transaction.category} date={transaction.date} value={transaction.value}/>);
-          })
-          }
-        </div>
+        {transactions.income
+        .sort((a, b) => new Date(b.date) - new Date(a.date) )
+        .map((transaction, index) => (
+          <TransactionCategory
+            key={index}
+            category={transaction.category}
+            date={transaction.date}
+            value={transaction.amount}
+          />
+        ))}
+        {transactions.expense
+        .sort((a, b) => new Date(b.date) - new Date(a.date) )
+        .map((transaction, index) => (
+          <TransactionCategory
+            key={index}
+            category={transaction.category}
+            date={transaction.date}
+            value={transaction.amount}
+          />
+        ))}
       </TransactionLog>
     </section>
   );

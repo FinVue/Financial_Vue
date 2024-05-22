@@ -6,7 +6,7 @@ function TransactionCategory({category, date, value = 0 }) {
     category == "Loan" ||
     category == "Others";
   const isExpense =
-    category == "Food" ||
+    category == "Foods & Drinks" ||
     category == "Shopping" ||
     category == "Transport" ||
     category == "Home Expense" ||
@@ -36,12 +36,12 @@ function TransactionCategory({category, date, value = 0 }) {
       categoryColor = "bg-other-exp";
       setEmoji = '🗂️';
       break;
-    case "Food":
+    case "Foods & Drinks":
       categoryColor = "bg-food";
       setEmoji = '🍔';
       break;
     case "Shopping":
-      categoryColor = "bg-shopping";
+      categoryColor = "bg-sag";
       setEmoji = '🛍️';
       break;
     case "Transport":

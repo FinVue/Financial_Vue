@@ -1,57 +1,54 @@
-import React, { useState, useEffect } from "react";
-import { auth, db, storage } from "../../firebase";
-import {
-  collection,
-  query,
-  where,
-  getDocs,
-  updateDoc,
-  doc,
-} from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import React, { useState, useEffect } from 'react';
+import { auth, db, storage } from '../../firebase';
+import { collection, query, where, getDocs, setDoc, doc } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 function Greet() {
-  const [userName, setUserName] = useState({ firstName: "", lastName: "" });
-  const [photoURL, setPhotoURL] = useState("");
+  const [userName, setUserName] = useState({ firstName: '', lastName: '' });
+  const [photoURL, setPhotoURL] = useState('');
 
   useEffect(() => {
     const fetchUserData = async () => {
       const user = auth.currentUser;
       if (user) {
         try {
-          if (
-            user.providerData &&
-            user.providerData[0].providerId === "google.com"
-          ) {
-            setPhotoURL(user.photoURL);
-          } else {
-            const q = query(
-              collection(db, "users"),
-              where("uid", "==", user.uid)
-            );
-            const querySnapshot = await getDocs(q);
-            querySnapshot.forEach((doc) => {
-              const userData = doc.data();
-              setUserName({
-                ...userName,
-                firstName: userData.firstName,
-                lastName: userData.lastName,
-              });
-            });
+          const userDocRef = doc(db, 'users', user.uid);
+          const q = query(collection(db, 'users'), where('uid', '==', user.uid));
+          const querySnapshot = await getDocs(q);
 
-            const storedPhotoURL = localStorage.getItem("photoURL");
-            if (storedPhotoURL) {
-              setPhotoURL(storedPhotoURL);
-            } else if (user.photoURL) {
-              setPhotoURL(user.photoURL);
-            }
+          if (querySnapshot.empty) {
+            // No user document found, create a new user document
+            await setDoc(userDocRef, {
+              uid: user.uid,
+              firstName: user.displayName ? user.displayName.split(' ')[0] : 'User',
+              lastName: user.displayName ? user.displayName.split(' ')[1] : '',
+              photoURL: user.photoURL || '',
+            });
+            setUserName({
+              firstName: user.displayName ? user.displayName.split(' ')[0] : 'User',
+              lastName: user.displayName ? user.displayName.split(' ')[1] : '',
+            });
+            setPhotoURL(user.photoURL || '');
+          } else {
+            querySnapshot.forEach(doc => {
+              const userData = doc.data();
+              setUserName({ firstName: userData.firstName, lastName: userData.lastName });
+              setPhotoURL(userData.photoURL || '');
+            });
+          }
+
+          const storedPhotoURL = localStorage.getItem(`photoURL_${user.uid}`);
+          if (storedPhotoURL) {
+            setPhotoURL(storedPhotoURL);
+          } else if (user.photoURL) {
+            setPhotoURL(user.photoURL);
           }
         } catch (error) {
-          console.error("Error fetching user data:", error);
+          console.error('Error fetching user data:', error);
         }
       } else {
-        console.log("No user is currently logged in");
-        setPhotoURL("");
+        console.log('No user is currently logged in');
+        setPhotoURL('');
       }
     };
 
@@ -66,14 +63,12 @@ function Greet() {
       try {
         await uploadBytes(storageRef, file);
         const downloadURL = await getDownloadURL(storageRef);
-        await updateDoc(doc(db, "users", user.uid), {
-          photoURL: downloadURL,
-        });
+        await setDoc(doc(db, 'users', user.uid), { photoURL: downloadURL }, { merge: true });
         setPhotoURL(downloadURL);
-        // Store the profile picture URL in local storage
-        localStorage.setItem("photoURL", downloadURL);
+        // Store the profile picture URL in local storage with a unique key for each user
+        localStorage.setItem(`photoURL_${user.uid}`, downloadURL);
       } catch (error) {
-        console.error("Error uploading profile picture:", error);
+        console.error('Error uploading profile picture:', error);
       }
     }
   };
@@ -93,14 +88,14 @@ function Greet() {
         <label htmlFor="profile-image">
           <img
             className="w-10 h-10 object-cover rounded-full cursor-pointer"
-            src={photoURL ? photoURL : "https://via.placeholder.com/40"}
+            src={photoURL || 'https://via.placeholder.com/40'}
             alt="Profile"
           />
           <input
             type="file"
             accept="image/jpeg, image/png"
             id="profile-image"
-            style={{ display: "none" }}
+            style={{ display: 'none' }}
             onChange={handleFileChange}
           />
         </label>

@@ -1,18 +1,47 @@
 import { useState } from "react";
+import { db, auth } from "../../../firebase"; 
+import { doc, setDoc, getDoc } from "firebase/firestore";
+import { ToastContainer, toast } from "react-toastify"; 
+import "react-toastify/dist/ReactToastify.css"; 
 
 function Expense() {
   const [formData, setFormData] = useState({
     amount: "",
-    category: "Personal",
+    category: "Foods & Drinks",
     date: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    try {
+      const currentUser = auth.currentUser; 
+      const uid = currentUser.uid; 
+      const userDocRef = doc(db, "users", uid); 
+      const userDocSnap = await getDoc(userDocRef); 
+
+      if (userDocSnap.exists()) {
+        const userData = userDocSnap.data();
+        const updatedExpense = [...userData.expense, formData];
+        await setDoc(userDocRef, { ...userData, expense: updatedExpense });
+        setFormData({
+          amount: "",
+          category: "Foods & Drinks",
+          date: "",
+        });
+        toast.success("Expense added successfully!");
+      } else {
+        console.error("User document does not exist.");
+        toast.error("Failed to add expense. User document does not exist.");
+      }
+    } catch (error) {
+      console.error("Error adding expense: ", error);
+      toast.error("Failed to add expense. Please try again.");
+    }
   };
+
   return (
     <section className="bg-zinc-900 min-h-screen py-4">
+      <ToastContainer />
       <article className="p-6">
         <div className="returnBtn bg-secondary">
           <i className="fa-solid fa-arrow-left text-black"></i>

@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { db, auth } from "../../../firebase"; // Import firestore and auth from firebase
+import { doc, setDoc, getDoc } from "firebase/firestore";
+import { ToastContainer, toast } from "react-toastify"; // Import ToastContainer and toast from react-toastify
+import "react-toastify/dist/ReactToastify.css"; // Import default css for toastify
 
 function Income() {
   const [formData, setFormData] = useState({
@@ -7,13 +11,39 @@ function Income() {
     date: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    try {
+      const currentUser = auth.currentUser; // Get the current user
+      const uid = currentUser.uid; // Get the UID of the current user
+      const userDocRef = doc(db, "users", uid); // Reference to the document of the current user
+      const userDocSnap = await getDoc(userDocRef); // Get the snapshot of the user document
+
+      if (userDocSnap.exists()) {
+        // If the user document exists, update it with the new income data
+        const userData = userDocSnap.data();
+        const updatedIncome = [...userData.income, formData];
+        await setDoc(userDocRef, { ...userData, income: updatedIncome });
+        setFormData({
+          amount: "",
+          category: "Personal",
+          date: "",
+        });
+        toast.success("Income added successfully!");
+      } else {
+        // If the user document does not exist, display an error
+        console.error("User document does not exist.");
+        toast.error("Failed to add income. User document does not exist.");
+      }
+    } catch (error) {
+      console.error("Error adding income: ", error);
+      toast.error("Failed to add income. Please try again.");
+    }
   };
 
   return (
     <section className="bg-zinc-900 min-h-screen py-4">
+      <ToastContainer />
       <article className="p-6">
         <div className="returnBtn bg-secondary">
           <i className="fa-solid fa-arrow-left text-black"></i>
