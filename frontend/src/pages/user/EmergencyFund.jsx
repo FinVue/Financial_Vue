@@ -1,22 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
+import { emergencyFund } from "../../controllers/features";
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 function EmergencyFund() {
   const [formData, setFormData] = useState({
     monthlySalary: "",
     monthsCount: "",
   });
+  const [emergencyFund, setEmergencyFund] = useState(0)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    try {
+      setEmergencyFund(formData.monthlySalary * formData.monthsCount);
+    } catch (error) {
+      toast.error(error);
+    }
   };
 
   return (
     <section className="min-h-screen bg-gradient-to-r from-secondary to-secondary-2">
       <article className="p-6 flex flex-col gap-8">
-        <div className="returnBtn">
-          <i className="fa-solid fa-arrow-left text-white"></i>
-        </div>
+        <Link to='/wallet'>
+          <div className="returnBtn">
+            <i className="fa-solid fa-arrow-left text-white"></i>
+          </div>
+        </Link>
         <div>
           <p className="text-small font-semibold">
             Recommended emergency fund:
@@ -24,7 +34,7 @@ function EmergencyFund() {
           <div className="relative flex">
             <p className="text-heading-2 font-bold">₱</p>
             <h3 className="text-heading-2 font-bold pl-5 break-words overflow-auto">
-              2000
+              {emergencyFund}
             </h3>
           </div>
         </div>

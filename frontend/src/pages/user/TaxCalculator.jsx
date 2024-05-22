@@ -22,6 +22,10 @@ function TaxCalculator() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if(formData.isSssMember === "Not Member" || formData.isGsisMember === "Not Member" || formData.isPhilHealthMember === "Not Member"){
+      return;
+    }
+    
     console.log(formData);
   };
 
