@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { db } from "../../../firebase";
 import { doc, getDoc } from "firebase/firestore";
@@ -54,6 +54,18 @@ function Dashboard() {
     expenseVal: totalExpense,
   };
 
+  // Combine and sort transactions by date, then limit to the last 10 transactions
+  const allTransactions = [
+    ...transactions.income.map((t) => ({ ...t, type: 'income' })),
+    ...transactions.expense.map((t) => ({ ...t, type: 'expense' })),
+  ];
+
+  const sortedTransactions = allTransactions.sort(
+    (a, b) => new Date(a.date) - new Date(b.date)
+  );
+
+  const last10Transactions = sortedTransactions.slice(-10).reverse();
+
   return (
     <section className="bg-zinc-900 min-h-screen py-4">
       <Greet name={name} />
@@ -62,20 +74,8 @@ function Dashboard() {
         incomeVal={cardDetails.incomeVal}
         ExpenseVal={cardDetails.expenseVal}
       />
-      <TransactionLog>
-        {transactions.income
-        .sort((a, b) => new Date(b.date) - new Date(a.date) )
-        .map((transaction, index) => (
-          <TransactionCategory
-            key={index}
-            category={transaction.category}
-            date={transaction.date}
-            value={transaction.amount}
-          />
-        ))}
-        {transactions.expense
-        .sort((a, b) => new Date(b.date) - new Date(a.date) )
-        .map((transaction, index) => (
+      <TransactionLog showNavigation={true}>
+        {last10Transactions.map((transaction, index) => (
           <TransactionCategory
             key={index}
             category={transaction.category}

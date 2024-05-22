@@ -1,14 +1,17 @@
-import TransactionCategory from "./TransactionCategory";
+import React from "react";
+import { Link } from "react-router-dom";
 
-TransactionCategory;
-
-function TransactionLog({children}) {
+function TransactionLog({ children, showNavigation }) {
   return (
     <article className="px-6 flex-col flex gap-3 py-4">
-      <p className="text-body text-white py-4">
-        Last 10 Transactions &gt;{" "}
-        <span className="text-body underline font-bold">View All</span>
-      </p>
+      {showNavigation && (
+        <p className="text-body text-white py-4">
+          Last 10 Transactions &gt;{" "}
+          <Link to="/wallet" className="text-body underline font-bold">
+            View All
+          </Link>
+        </p>
+      )}
       {children}
     </article>
   );
