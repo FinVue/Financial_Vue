@@ -6,8 +6,21 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 function Greet() {
   const [userName, setUserName] = useState({ firstName: '', lastName: '' });
   const [photoURL, setPhotoURL] = useState('');
+  const [greeting, setGreeting] = useState('Good morning');
 
   useEffect(() => {
+    const updateGreeting = () => {
+      const currentHour = new Date().getHours();
+      if (currentHour < 12) {
+        setGreeting('Good Morning');
+      } else if (currentHour < 18) {
+        setGreeting('Good Afternoon');
+      } else {
+        setGreeting('Good Evening');
+      }
+    };
+
+    updateGreeting();
     const fetchUserData = async () => {
       const user = auth.currentUser;
       if (user) {
@@ -77,7 +90,7 @@ function Greet() {
     <article className="px-6 py-8 w-full flex justify-between items-center">
       <div className="flex items-center">
         <h1 className="text-heading-3 leading-tight font-medium text-white">
-          Good morning,
+          {greeting},
           <br />
           <span className="text-secondary text-heading-3 font-bold">
             {`${userName.firstName} ${userName.lastName}`}

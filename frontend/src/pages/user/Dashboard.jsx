@@ -19,7 +19,7 @@ function Dashboard() {
         const userDocRef = doc(db, "users", user.uid);
         const userDocSnap = await getDoc(userDocRef);
 
-        if (userDocSnap.exists()) {
+        if (userDocSnap.exists()) { 
           const userData = userDocSnap.data();
           const { income = [], expense = [] } = userData;
 

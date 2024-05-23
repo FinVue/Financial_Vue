@@ -19,8 +19,18 @@ function Wallet() {
 
         if (userDocSnap.exists()) {
           const userData = userDocSnap.data();
-          const { income = [], expense = [] } = userData;
-          const allTransactions = [...income, ...expense];
+          const { income = {}, expense = {} } = userData;
+
+          // Convert maps to arrays and add type information
+          const incomeArray = Object.keys(income).map(key => ({ id: key, ...income[key], type: 'income' }));
+          const expenseArray = Object.keys(expense).map(key => ({ id: key, ...expense[key], type: 'expense' }));
+
+          // Combine income and expense arrays
+          const allTransactions = [...incomeArray, ...expenseArray];
+
+          // Sort transactions by date in descending order
+          allTransactions.sort((a, b) => new Date(b.date) - new Date(a.date));
+
           setTransactions(allTransactions);
         } else {
           console.error("User document does not exist.");
@@ -42,7 +52,7 @@ function Wallet() {
       <article className="px-6 py-4">
         <p className="text-body text-white py-4">All transactions</p>
         <TransactionLog showNavigation={false}>
-        {transactions.map((transaction, index) => (
+          {transactions.map((transaction, index) => (
             <TransactionCategory
               key={index}
               category={transaction.category}
