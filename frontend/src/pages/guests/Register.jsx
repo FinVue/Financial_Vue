@@ -114,9 +114,11 @@ function Register() {
   return (
     <section className="min-h-screen bg-gradient-to-r from-secondary to-secondary-2">
       <article className="p-6">
-        <div className="returnBtn">
-          <i className="fa-solid fa-arrow-left text-white"></i>
-        </div>
+        <Link to={'/'}>
+          <div className="returnBtn">
+            <i className="fa-solid fa-arrow-left text-white"></i>
+          </div>
+        </Link>
         <h1 className="text-right text-heading-3 font-bold pb-4 tracking-f-small leading-snug">
           Unlock the power
           <br />

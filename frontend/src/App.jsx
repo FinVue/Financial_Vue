@@ -11,6 +11,7 @@ import Layout from "./pages/Layout"
 import Wallet from "./pages/user/Wallet"
 import GuestRoutes from "./routes/GuestRoutes"
 import AuthRoutes from "./routes/AuthRoutes"
+import Home from "./pages/guests/Home"
 
 function App() {
   
@@ -18,6 +19,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout/>}>
+          <Route index element={<Home/>}/>
+
           <Route element={<AuthRoutes/>}>
             <Route path="/dashboard" element={<Dashboard/>}/>
             <Route path="/income" element={<Income/>}/>

@@ -763,7 +763,7 @@ function TaxCalculator() {
       }
 
       if (formData.isPhilHealthMember === "Philhealth Member") {
-        ph_total = eval(formData.monthlySalary * 0.04);
+        ph_total = eval(formData.monthlySalary * 0.05);
         setPhilHealthDeductionAmt(eval(ph_total.toFixed(2)));
       }
 
