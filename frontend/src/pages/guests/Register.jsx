@@ -4,14 +4,14 @@ import { toast } from "react-toastify";
 import { FirebaseError } from "firebase/app";
 import { auth, db, googleProvider } from "../../../firebase";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import bcryptjs from "bcryptjs";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 
 function Register() {
   const nav = useNavigate();
-  const {user, setUser} = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -32,6 +32,7 @@ function Register() {
         formData.password,
         formData.confirmedPassword
       );
+
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         formData.email,
@@ -39,19 +40,25 @@ function Register() {
       );
 
       const salt = await bcryptjs.genSalt(10);
-      const saltedPassword = (await formData.password) + salt;
+      const saltedPassword = formData.password + salt;
       const hashedPassword = await bcryptjs.hash(saltedPassword, 10);
 
-      await addDoc(collection(db, "users"), {
+      // Create a document with the user's UID as the document ID
+      const userDocRef = doc(db, "users", userCredential.user.uid);
+      
+      // Add user data to the newly created document
+      await setDoc(userDocRef, {
         uid: userCredential.user.uid,
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
         password: hashedPassword,
+        income: [],
+        expense: [],
       });
 
-      nav('/dashboard')
-      toast.success('Your account has been successfully registered.');
+      nav("/login");
+      toast.success("Your account has been successfully registered.");
     } catch (error) {
       if (error instanceof FirebaseError) {
         switch (error.code) {
@@ -66,7 +73,9 @@ function Register() {
             );
             break;
           case "auth/invalid-email":
-            toast.error("Please use a valid Gmail account for registration.");
+            toast.error(
+              "Please use a valid Gmail account for registration."
+            );
             break;
           default:
             toast.error(error.message);
@@ -82,7 +91,7 @@ function Register() {
       const result = await signInWithPopup(auth, googleProvider);
       toast.success("Your account has been successfully registered!");
       setUser(result.user);
-      nav('/dashboard');
+      nav("/dashboard");
     } catch (error) {
       if (error instanceof FirebaseError) {
         switch (error.code) {

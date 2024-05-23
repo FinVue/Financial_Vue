@@ -39,7 +39,7 @@ function Navbar() {
             <AlertDialogContent className="bg-zinc-900 border-0">
               <AlertDialogHeader className="bg-zinc-900 w-full">
                 <Link to={'/income'}><AlertDialogAction className="w-full"><Button className="text-body text-inc-900 uppercase text-center bg-secondary font-bold tracking-f-widest w-full">Add Income 💸</Button></AlertDialogAction></Link>
-                <Link to={'/expense'}><AlertDialogAction className="w-full"><Button className="text-body text-inc-900 uppercase text-center text-white bg-zinc-700 hover:bg-zinc-800 font-bold tracking-f-widest w-full">Add Expense 🚀</Button></AlertDialogAction></Link>
+                <Link to={'/expense'}><AlertDialogAction className="w-full"><Button className="text-body text-inc-900 uppercase text-center text-white bg-red-500 hover:bg-red-900 font-bold tracking-f-widest w-full">Add Expense 🚀</Button></AlertDialogAction></Link>
               </AlertDialogHeader>
               <AlertDialogFooter>
                 <AlertDialogCancel className="w-full bg-zinc-900 hover:bg-zinc-800 border-0 text-white uppercase">Cancel</AlertDialogCancel>
@@ -52,7 +52,7 @@ function Navbar() {
         </div>
       ) : (
         <div className="flex gap-5 md:gap-16">
-          <NavLink to={"index"} title="Home" className={linkClass}>
+          <NavLink to={"/home"} title="Home" className={linkClass}>
             <i className="fa-solid fa-house"></i>
           </NavLink>
           <NavLink to={"/login"} title="Login" className={linkClass}>
