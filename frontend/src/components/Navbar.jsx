@@ -51,7 +51,7 @@ function Navbar() {
         </div>
       ) : (
         <div className="flex gap-5 md:gap-16">
-          <NavLink to={"/home"} title="Home" className={linkClass}>
+          <NavLink to='/' title="Home" className={linkClass}>
             <i className="fa-solid fa-house"></i>
           </NavLink>
           <NavLink to={"/login"} title="Login" className={linkClass}>
