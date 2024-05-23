@@ -19,7 +19,6 @@ function Navbar() {
       : " text-white hover:bg-zinc-900 w-12 h-12 flex items-center justify-center p-4 rounded-md duration-300";
 
   const { user } = useContext(UserContext);
-  console.log(user);
 
   return (
     <>
