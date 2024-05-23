@@ -96,329 +96,179 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 6249.99) {
           msc = 6000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 6749.99) {
           msc = 6500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 7249.99) {
           msc = 7000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 7749.99) {
           msc = 7500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 8249.99) {
           msc = 8000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 8749.99) {
           msc = 8500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 9249.99) {
           msc = 9000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 9749.99) {
           msc = 9500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 10249.99) {
           msc = 10000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 10749.99) {
           msc = 10500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 11249.99) {
           msc = 11000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 11749.99) {
           msc = 11500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 12249.99) {
           msc = 12000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 12749.99) {
           msc = 12500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 13249.99) {
           msc = 13000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 13749.99) {
           msc = 13500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 14249.99) {
           msc = 14000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 14749.99) {
           msc = 14500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 15249.99) {
           msc = 15000;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 15749.99) {
           msc = 15500;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 16249.99) {
           msc = 16000;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 16749.99) {
           msc = 16500;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 17249.99) {
           msc = 17000;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 17749.99) {
           msc = 17500;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 18249.99) {
           msc = 18000;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 18749.99) {
           msc = 18500;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 19249.99) {
           msc = 19000;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 19749.99) {
           msc = 19500;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 20249.99) {
           msc = 20000;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 20749.99) {
           msc = 20000;
           ec = 30;
@@ -426,11 +276,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 21249.99) {
           msc = 20000;
           ec = 30;
@@ -438,11 +283,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 21749.99) {
           msc = 20000;
           ec = 30;
@@ -450,11 +290,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 22249.99) {
           msc = 20000;
           ec = 30;
@@ -462,11 +297,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 22749.99) {
           msc = 20000;
           ec = 30;
@@ -474,11 +304,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 23249.99) {
           msc = 20000;
           ec = 30;
@@ -486,11 +311,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 23749.99) {
           msc = 20000;
           ec = 30;
@@ -498,11 +318,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 24249.99) {
           msc = 20000;
           ec = 30;
@@ -510,11 +325,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 24749.99) {
           msc = 20000;
           ec = 30;
@@ -522,11 +332,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 25249.99) {
           msc = 20000;
           ec = 30;
@@ -534,11 +339,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 25749.99) {
           msc = 20000;
           ec = 30;
@@ -546,11 +346,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 26249.99) {
           msc = 20000;
           ec = 30;
@@ -558,11 +353,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 26749.99) {
           msc = 20000;
           ec = 30;
@@ -570,11 +360,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 27249.99) {
           msc = 20000;
           ec = 30;
@@ -582,11 +367,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 27749.99) {
           msc = 20000;
           ec = 30;
@@ -594,11 +374,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 28249.99) {
           msc = 20000;
           ec = 30;
@@ -606,11 +381,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 28749.99) {
           msc = 20000;
           ec = 30;
@@ -618,11 +388,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 29249.99) {
           msc = 20000;
           ec = 30;
@@ -630,11 +395,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 29749.99) {
           msc = 20000;
           ec = 30;
@@ -643,11 +403,6 @@ function TaxCalculator() {
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
           console.log(sssDeductionAmt);
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else {
           msc = 20000;
           ec = 30;
@@ -655,11 +410,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         }
       } else if (formData.isSssMember === "Employee") {
         if (formData.monthlySalary <= 4250) {
@@ -668,362 +418,197 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 4749) {
           msc = 4500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 5249.99) {
           msc = 5000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 5749.99) {
           msc = 5500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 6249.99) {
           msc = 6000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 6749.99) {
           msc = 6500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 7249.99) {
           msc = 7000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 7749.99) {
           msc = 7500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 8249.99) {
           msc = 8000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 8749.99) {
           msc = 8500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 9249.99) {
           msc = 9000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 9749.99) {
           msc = 9500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 10249.99) {
           msc = 10000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 10749.99) {
           msc = 10500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 11249.99) {
           msc = 11000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 11749.99) {
           msc = 11500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 12249.99) {
           msc = 12000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 12749.99) {
           msc = 12500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 13249.99) {
           msc = 13000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 13749.99) {
           msc = 13500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 14249.99) {
           msc = 14000;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 14749.99) {
           msc = 14500;
           ec = 10;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 15249.99) {
           msc = 15000;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 15749.99) {
           msc = 15500;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 16249.99) {
           msc = 16000;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 16749.99) {
           msc = 16500;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 17249.99) {
           msc = 17000;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 17749.99) {
           msc = 17500;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 18249.99) {
           msc = 18000;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 18749.99) {
           msc = 18500;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 19249.99) {
           msc = 19000;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 19749.99) {
           msc = 19500;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 20249.99) {
           msc = 20000;
           ec = 30;
           tmc = eval(msc * contri_rate + ec);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 20749.99) {
           msc = 20000;
           ec = 30;
@@ -1031,11 +616,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 21249.99) {
           msc = 20000;
           ec = 30;
@@ -1043,11 +623,6 @@ function TaxCalculator() {
           tmc = eval(eval(msc * contri_rate + ec + mpf * contri_rate));
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 21749.99) {
           msc = 20000;
           ec = 30;
@@ -1055,11 +630,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 22249.99) {
           msc = 20000;
           ec = 30;
@@ -1067,11 +637,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 22749.99) {
           msc = 20000;
           ec = 30;
@@ -1079,11 +644,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 23249.99) {
           msc = 20000;
           ec = 30;
@@ -1091,11 +651,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 23749.99) {
           msc = 20000;
           ec = 30;
@@ -1103,11 +658,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 24249.99) {
           msc = 20000;
           ec = 30;
@@ -1115,11 +665,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 24749.99) {
           msc = 20000;
           ec = 30;
@@ -1127,11 +672,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 25249.99) {
           msc = 20000;
           ec = 30;
@@ -1139,11 +679,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 25749.99) {
           msc = 20000;
           ec = 30;
@@ -1151,11 +686,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 26249.99) {
           msc = 20000;
           ec = 30;
@@ -1163,11 +693,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 26749.99) {
           msc = 20000;
           ec = 30;
@@ -1175,11 +700,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 27249.99) {
           msc = 20000;
           ec = 30;
@@ -1187,11 +707,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 27749.99) {
           msc = 20000;
           ec = 30;
@@ -1199,11 +714,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 28249.99) {
           msc = 20000;
           ec = 30;
@@ -1211,11 +721,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 28749.99) {
           msc = 20000;
           ec = 30;
@@ -1223,11 +728,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 29249.99) {
           msc = 20000;
           ec = 30;
@@ -1235,11 +735,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else if (formData.monthlySalary <= 29749.99) {
           msc = 20000;
           ec = 30;
@@ -1247,11 +742,6 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         } else {
           msc = 20000;
           ec = 30;
@@ -1259,39 +749,22 @@ function TaxCalculator() {
           tmc = eval(msc * contri_rate + ec + mpf * contri_rate);
           final_sss = formData.monthlySalary - tmc;
           setSssDeductionAmt(tmc.toFixed(2));
-          alert(
-            `Your total monthly contribution is: ${tmc.toFixed(
-              2
-            )}\n Your remaining balance is:${final_sss} `
-          );
         }
       }
 
       if (formData.isGsisMember === "Employee") {
         percent_gsis = 0.09;
         total_gsis = eval(formData.monthlySalary * percent_gsis);
-        final_gsis = eval(formData.monthlySalary - total_gsis);
         setGsisDeductionAmt(eval(total_gsis.toFixed(2)));
-        alert(
-          `Your contribution is ${total_gsis} pesos.\n Your remaining balance is ${final_gsis} pesos.`
-        );
       } else if (formData.isGsisMember === "Employer") {
         percent_gsis = 0.12;
         total_gsis = eval(formData.monthlySalary * percent_gsis);
-        final_gsis = eval(formData.monthlySalary - total_gsis);
         setGsisDeductionAmt(eval(total_gsis.toFixed(2)));
-        alert(
-          `Your contribution is ${total_gsis} pesos.\n Your remaining balance is ${final_gsis} pesos.`
-        );
       }
 
       if (formData.isPhilHealthMember === "Philhealth Member") {
         ph_total = eval(formData.monthlySalary * 0.04);
-        ph_final = formData.monthlySalary - ph_total;
         setPhilHealthDeductionAmt(eval(ph_total.toFixed(2)));
-        alert(
-          `Your contribution is ${ph_total} pesos.\n Your remaining balance is ${ph_final} pesos. `
-        );
       }
 
       setFormData({ ...formData, finalSalary: taxedIncome.toFixed(2) });
