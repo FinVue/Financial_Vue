@@ -9,6 +9,7 @@ import TransactionCategory from "../../components/TransactionCategory";
 
 function Dashboard() {
   const { user } = useContext(UserContext);
+  const [displayName, setDisplayName] = useState(""); // State to hold the user's display name
   const [totalIncome, setTotalIncome] = useState("0");
   const [totalExpense, setTotalExpense] = useState("0");
   const [transactions, setTransactions] = useState({ income: [], expense: [] });
@@ -22,7 +23,9 @@ function Dashboard() {
         if (userDocSnap.exists()) {
           const userData = userDocSnap.data();
           console.log("User data:", userData); // Log the fetched user data
-          const { income = [], expense = [] } = userData;
+          const { income = [], expense = [], displayName } = userData;
+
+          setDisplayName(displayName); // Set the user's display name
 
           const totalIncome = income.reduce(
             (acc, curr) => acc + parseFloat(curr.amount),
@@ -62,7 +65,6 @@ function Dashboard() {
     }
   };
 
-  const name = "John Doe"; // Replace with the user's actual name if needed
   const cardDetails = {
     balanceTtl: (parseFloat(totalIncome) - parseFloat(totalExpense)).toFixed(2),
     incomeVal: totalIncome,
@@ -83,7 +85,7 @@ function Dashboard() {
 
   return (
     <section className="bg-zinc-900 min-h-screen py-4">
-      <Greet name={name} />
+      <Greet name={displayName} />
       <CardBalance
         balanceTtl={cardDetails.balanceTtl}
         incomeVal={cardDetails.incomeVal}

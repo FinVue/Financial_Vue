@@ -2,17 +2,18 @@ import { useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom'
 import { toast } from "react-toastify";
 import { loginUser } from "../../controllers/user";
-import { auth, googleProvider } from "../../../firebase";
+import { auth, googleProvider, db } from "../../../firebase";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
 import { UserContext } from "../../contexts/UserContext";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 function Login() {
   const nav = useNavigate();
 
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [showPwd, setShowPwd] = useState(false);
-  const {user, setUser} = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,8 +46,26 @@ function Login() {
   const loginWithGoogleAccount = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
+      const userCredential = result.user;
+
+      // Check if the user exists in Firestore
+      const userDocRef = doc(db, "users", userCredential.uid);
+      const docSnap = await getDoc(userDocRef);
+
+      if (!docSnap.exists()) {
+        // If the user does not exist, add them to Firestore
+        await setDoc(userDocRef, {
+          uid: userCredential.uid,
+          email: userCredential.email,
+          displayName: userCredential.displayName,
+          balance: 0,
+          income: [],
+          expense: [],
+        });
+      }
+
+      setUser(userCredential);
       toast.success("You have successfully logged in!");
-      setUser(result.user);
       nav('/dashboard');
     } catch (error) {
       if (error instanceof FirebaseError) {

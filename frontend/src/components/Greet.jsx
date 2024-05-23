@@ -31,21 +31,23 @@ function Greet() {
 
           if (querySnapshot.empty) {
             // No user document found, create a new user document
-            await setDoc(userDocRef, {
+            const userData = {
               uid: user.uid,
-              firstName: user.displayName ? user.displayName.split(' ')[0] : 'User',
+              displayName: user.displayName || '',
+              firstName: user.displayName ? user.displayName.split(' ')[0] : '',
               lastName: user.displayName ? user.displayName.split(' ')[1] : '',
               photoURL: user.photoURL || '',
-            });
-            setUserName({
-              firstName: user.displayName ? user.displayName.split(' ')[0] : 'User',
-              lastName: user.displayName ? user.displayName.split(' ')[1] : '',
-            });
-            setPhotoURL(user.photoURL || '');
+            };
+            await setDoc(userDocRef, userData);
+            setUserName({ firstName: userData.firstName, lastName: userData.lastName });
+            setPhotoURL(userData.photoURL || '');
           } else {
             querySnapshot.forEach(doc => {
               const userData = doc.data();
-              setUserName({ firstName: userData.firstName, lastName: userData.lastName });
+              setUserName({
+                firstName: userData.firstName || userData.displayName.split(' ')[0],
+                lastName: userData.lastName || userData.displayName.split(' ')[1] || '',
+              });
               setPhotoURL(userData.photoURL || '');
             });
           }
