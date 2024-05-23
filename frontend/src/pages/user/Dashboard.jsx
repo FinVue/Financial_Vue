@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { db } from "../../../firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Greet from "../../components/Greet";
 import CardBalance from "../../components/CardBalance";
 import TransactionLog from "../../components/TransactionLog";
@@ -14,13 +14,14 @@ function Dashboard() {
   const [transactions, setTransactions] = useState({ income: [], expense: [] });
 
   useEffect(() => {
-    const fetchIncomeAndExpense = async () => {
+    const fetchUserData = async () => {
       try {
         const userDocRef = doc(db, "users", user.uid);
         const userDocSnap = await getDoc(userDocRef);
 
-        if (userDocSnap.exists()) { 
+        if (userDocSnap.exists()) {
           const userData = userDocSnap.data();
+          console.log("User data:", userData); // Log the fetched user data
           const { income = [], expense = [] } = userData;
 
           const totalIncome = income.reduce(
@@ -36,16 +37,30 @@ function Dashboard() {
           setTotalIncome(totalIncome.toFixed(2));
           setTotalExpense(totalExpense.toFixed(2));
           setTransactions({ income, expense });
+          
+          // Update balance in the database
+          const balance = totalIncome - totalExpense;
+          await updateBalanceInDatabase(balance);
         } else {
           console.error("User document does not exist.");
         }
       } catch (error) {
-        console.error("Error fetching income and expense data: ", error);
+        console.error("Error fetching user data: ", error);
       }
     };
 
-    fetchIncomeAndExpense();
-  }, [user]);
+    fetchUserData();
+  }, [user.uid]);
+
+  const updateBalanceInDatabase = async (balance) => {
+    try {
+      const userDocRef = doc(db, "users", user.uid);
+      await updateDoc(userDocRef, { balance });
+      console.log("Balance updated successfully!");
+    } catch (error) {
+      console.error("Error updating user's balance in database: ", error);
+    }
+  };
 
   const name = "John Doe"; // Replace with the user's actual name if needed
   const cardDetails = {

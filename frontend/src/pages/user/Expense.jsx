@@ -1,24 +1,58 @@
-import { useState } from "react";
-import { db, auth } from "../../../firebase"; 
+import React, { useState, useEffect } from "react";
+import { db, auth } from "../../../firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
-import { ToastContainer, toast } from "react-toastify"; 
-import "react-toastify/dist/ReactToastify.css"; 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function Expense() {
+function Expense({ userBalance }) {
   const [formData, setFormData] = useState({
     amount: "",
     category: "Foods & Drinks",
     date: "",
   });
+  const [balance, setBalance] = useState(0);
+
+  useEffect(() => {
+    // Fetch user's balance from the database
+    const fetchBalance = async () => {
+      try {
+        const currentUser = auth.currentUser;
+        const uid = currentUser.uid;
+        const userDocRef = doc(db, "users", uid);
+        const userDocSnap = await getDoc(userDocRef);
+
+        if (userDocSnap.exists()) {
+          const userData = userDocSnap.data();
+          setBalance(userData.balance);
+        } else {
+          console.error("User document does not exist.");
+        }
+      } catch (error) {
+        console.error("Error fetching user balance: ", error);
+      }
+    };
+
+    fetchBalance();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
+    // Convert expense amount to number
+    const expenseAmount = parseFloat(formData.amount);
+  
+    // Check if the expense amount exceeds the user's balance
+    if (expenseAmount > balance) {
+      toast.error("Expense amount exceeds your balance. Cannot add expense.");
+      return;
+    }
+  
     try {
-      const currentUser = auth.currentUser; 
-      const uid = currentUser.uid; 
-      const userDocRef = doc(db, "users", uid); 
-      const userDocSnap = await getDoc(userDocRef); 
-
+      const currentUser = auth.currentUser;
+      const uid = currentUser.uid;
+      const userDocRef = doc(db, "users", uid);
+      const userDocSnap = await getDoc(userDocRef);
+  
       if (userDocSnap.exists()) {
         const userData = userDocSnap.data();
         const updatedExpense = [...userData.expense, formData];
@@ -51,7 +85,7 @@ function Expense() {
         <h3 className="text-heading-3 tracking-f-small font-bold text-white">
           Add <span className="text-red-500">Expense</span>
         </h3>
-        <form onSubmit={handleSubmit} className=" flex flex-col gap-5">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           <div className="grid gap-1">
             <label className="primary-label" htmlFor="amount">
               Amount <span className="text-secondary">*</span>
