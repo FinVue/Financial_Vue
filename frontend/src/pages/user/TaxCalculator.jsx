@@ -28,8 +28,6 @@ function TaxCalculator() {
     finalSalary: "",
   });
 
-  const [accumulatedTax, setAccumulatedTax] = useState(null)
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
