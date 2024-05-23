@@ -6,8 +6,9 @@ import { auth, db, googleProvider } from "../../../firebase";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import bcryptjs from "bcryptjs";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
+
 
 function Register() {
   const nav = useNavigate();
@@ -113,9 +114,11 @@ function Register() {
   return (
     <section className="min-h-screen bg-gradient-to-r from-secondary to-secondary-2">
       <article className="p-6">
-        <div className="returnBtn">
-          <i className="fa-solid fa-arrow-left text-white"></i>
-        </div>
+        <Link to={'/'}>
+          <div className="returnBtn">
+            <i className="fa-solid fa-arrow-left text-white"></i>
+          </div>
+        </Link>
         <h1 className="text-right text-heading-3 font-bold pb-4 tracking-f-small leading-snug">
           Unlock the power
           <br />

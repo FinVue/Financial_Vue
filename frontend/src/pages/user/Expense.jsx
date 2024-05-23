@@ -3,6 +3,7 @@ import { db, auth } from "../../../firebase";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 function Expense({ userBalance }) {
   const [formData, setFormData] = useState({
@@ -75,11 +76,12 @@ function Expense({ userBalance }) {
 
   return (
     <section className="bg-zinc-900 min-h-screen py-4">
-      <ToastContainer />
       <article className="p-6">
-        <div className="returnBtn bg-secondary">
-          <i className="fa-solid fa-arrow-left text-black"></i>
-        </div>
+        <Link to={'/dashboard'}>
+          <div className="returnBtn bg-secondary">
+            <i className="fa-solid fa-arrow-left text-black"></i>
+          </div>
+        </Link> 
       </article>
       <article className="p-6">
         <h3 className="text-heading-3 tracking-f-small font-bold text-white">
