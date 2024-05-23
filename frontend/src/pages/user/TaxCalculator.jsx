@@ -31,9 +31,9 @@ function TaxCalculator() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setSssDeductionAmt();
-    setGsisDeductionAmt();
-    setPhilHealthDeductionAmt();
+    setSssDeductionAmt('');
+    setGsisDeductionAmt('');
+    setPhilHealthDeductionAmt('');
 
     const contri_rate = 0.14;
 
@@ -1527,7 +1527,7 @@ function TaxCalculator() {
             img={gsisLogo}
           />
           <CardTax recipient="PhilHealth" taxedValue={philHealthDeductionAmt} img={philhealthLogo} />
-          <CardTax recipient="Total Accumulated Tax" taxedValue={eval(sssDeductionAmt + gsisDeductionAmt + philHealthDeductionAmt).toFixed(2)} img={taxLogo} />
+          <CardTax recipient="Total Accumulated Tax" taxedValue={eval(sssDeductionAmt + gsisDeductionAmt + philHealthDeductionAmt)} img={taxLogo} />
         </div>
       </article>
     </section>
